@@ -5,11 +5,12 @@ official [`xyops-shell-image`](https://github.com/pixlcore/xyops-shell-image).
 
 **Image:** `ghcr.io/xms991/xyops-python:latest`
 
+This is AI slop but I might use it anyways
+
 ## What's inside
 
-- Debian 12 (bookworm) base, via the xyOps shell image
-- Python 3.11 with pip
-- Preinstalled Python packages:
+- the xyOps shell image
+- some more stuff
 
 | Package | Purpose |
 | --- | --- |
@@ -40,14 +41,7 @@ Or reference `ghcr.io/xms991/xyops-python:latest` as the container image in
 your xyOps job/plugin configuration.
 
 ## Building and publishing
-
-```bash
-# Log in to GHCR (needs a token with write:packages)
-gh auth token | docker login ghcr.io -u xms991 --password-stdin
-
-docker compose build
-docker compose push
-```
-
 To add more packages, edit the `pip3 install` list in the
 [Dockerfile](Dockerfile), then rebuild and push as above.
+
+**I probably won't maintain this.**
