@@ -41,6 +41,20 @@ Or reference `ghcr.io/xms991/xyops-python:latest` as the container image in
 your xyOps job/plugin configuration.
 
 ## Building and publishing
+
+```bash
+# Log in to GHCR (needs a token with write:packages)
+gh auth token | docker login ghcr.io -u xms991 --password-stdin
+
+# Build for both amd64 (worker nodes) and arm64 (Apple Silicon), and push
+docker buildx build --platform linux/amd64,linux/arm64 \
+    -t ghcr.io/xms991/xyops-python:latest --push .
+```
+
+Note: use the `buildx` command above rather than `docker compose build` —
+Compose only builds for your local architecture, while workers may run on
+a different one.
+
 To add more packages, edit the `pip3 install` list in the
 [Dockerfile](Dockerfile), then rebuild and push as above.
 
