@@ -1,0 +1,4 @@
+services:
+  xyops-python:
+    build: .
+    image: ghcr.io/xms991/xyops-python:latest
